@@ -148,21 +148,148 @@ while true; do
     sleep 0.3
 done
 
-# === RETURN TO TERMINAL ===
+# Loading animation
+echo -ne "LOADING" | lolcat
+for i in {1..12}; do 
+    echo -n "." | lolcat
+    sleep 0.2
+done
+echo -e "\nSYSTEM STABLE ✅" | lolcat
+sleep 1
+
+# Countdown before proceeding
+echo -e "\n🌀 Starting in:" | lolcat
+for i in {5..1}; do 
+    echo -e "⏳ $i" | lolcat 
+    sleep 0.5
+done
+
+# Simulated memory flood animation
+echo -e "\n💣 Simulating Memory Flood..." | lolcat
+MEMBAR="▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓"
+for i in {1..10}; do
+    COUNT=$(( i * 5 ))
+    PERCENT=$(( i * 10 ))
+    echo -ne "${MEMBAR:0:$COUNT}" | lolcat
+    echo "  ${PERCENT}%" | lolcat
+    sleep 0.3
+done
+
+figlet "OVERLOAD!" | lolcat
+sleep 1
+
+# Display real-time system statistics
+echo -e "\n📊 Real-Time System Stats\n" | lolcat
+echo -e "🔬 RAM Usage:" | lolcat
+free -h | lolcat
+
+echo -e "\n💽 Disk Space:" | lolcat
+df -h | lolcat
+
+# Simulated Hacker AI Logs
+echo -e "\n🧠 HACKER AI LOGS:" | lolcat
+sleep 0.5
+echo " > Injecting payload..." | lolcat; sleep 0.4
+echo " > Bypassing firewall..." | lolcat; sleep 0.4
+echo " > Exploiting port 4444..." | lolcat; sleep 0.4
+echo " > Decrypting data stream..." | lolcat; sleep 0.4
+echo " > Access Granted ✔️" | lolcat
+
+# ========== TYPEWRITER FUNCTION ==========
+typewriter() {
+  text="$1"
+  delay="${2:-0.05}"
+  for (( i=0; i<${#text}; i++ )); do
+    printf "${CYAN}${text:$i:1}${NC}"
+    sleep "$delay"
+  done
+  echo ""
+}
+
+# ========== LOADING BAR ==========
+loading_bar() {
+  msg="$1"
+  echo -ne "${YELLOW}${msg} ["
+  for i in {1..20}; do
+    echo -ne "#"
+    sleep 0.05
+  done
+  echo -e "]${NC}"
+  sleep 0.5
+}
+
+# ========== COUNTDOWN (4, 2, 1) ==========
+countdown() {
+  echo -e "\n${RED}Commencing Black Hat Simulation in:${NC}"
+  sleep 1
+  for i in 4 2 1; do
+    clear
+    echo -e "${RED}"
+    figlet "$i" | lolcat
+    sleep 1
+  done
+  echo -e "\n"
+}
+
+# ========== SECTION TITLE ==========
+section() {
+  echo -e "\n${GREEN}[+ ${1} +]${NC}\n"
+  sleep 1
+}
+
+# ========== BOOT SEQUENCE ==========
 clear
-echo -e "${GREEN}[✔] SYSTEM READY. HACKING INTERFACE UNLOCKED.${NC}"
+typewriter "Booting into Black Hat Hacker Training OS..." 0.04
+sleep 0.5
+loading_bar "Injecting Root Access"
+loading_bar "Spoofing MAC Address"
+loading_bar "Loading Terminal Modules"
+countdown
+
+# ========== SYSTEM READY ==========
+clear
+typewriter "[✔] SYSTEM READY. HACKING INTERFACE UNLOCKED." 0.04
+sleep 0.5
 
 echo -e "${GREEN}===============ᴄʏʙᴇʀ ʙʟᴀᴄᴋ ʟɪᴏɴ====================="
 echo -e "${GREEN}____________________________________________________"
+sleep 0.5
 
-echo -e "${YELLOW}• user id" :
-whoami
-echo -e "${YELLOW}• usr ip address" :
-curl ifconfig.me
-echo -e "${YELLOW} • usr architecture" :
-dpkg --print-architecture
-echo -e "${YELLOW}• wifi connection system and mac address, wifi broadcast"
-arp
+figlet -f slant "CYBER" | lolcat
+figlet -f slant "SCANNERS" | lolcat
+sleep 0.5
 
+typewriter ">> DEVELOPER: CYBER BLACK LION <<" 0.04
+sleep 0.8
+
+# ========== SYSTEM INFO ==========
+section "System Identity"
+echo -e "${YELLOW}• User ID          : $(whoami)"
+sleep 0.5
+echo -e "${YELLOW}• IP Address       : $(curl -s ifconfig.me)"
+sleep 0.5
+echo -e "${YELLOW}• Architecture     : $(dpkg --print-architecture)"
+sleep 0.5
+echo -e "${YELLOW}• MAC & Network    : $arp)"
+sleep 1
+
+# ========== HACKER STATUS ==========
+echo -e "\e[1;31m"
+typewriter "[+] Hacker Identity: Verified" 0.03
+typewriter "[+] Mask: Activated" 0.03
+typewriter "[+] Country: Sri Lanka" 0.03
+echo -e "\e[0m"
+sleep 1
+
+# ========== ANONYMOUS SLOGANS ==========
+echo -e "\e[1;36m"
+typewriter "  ~ We Are Black Hat ~" 0.04
+typewriter "  ~ We Are Legends ~" 0.04
+typewriter "  ~ We Do Not Forgive ~" 0.04
+typewriter "  ~ We Do Not Forget ~" 0.04
+typewriter "  ~ Expect Us ~" 0.04
+echo -e "\e[0m"
+
+# ========== END BANNER ==========
 echo -e "${GREEN}____________________________________________________"
 echo -e "${GREEN}===============ᴄʏʙᴇʀ ʙʟᴀᴄᴋ ʟɪᴏɴ====================="
